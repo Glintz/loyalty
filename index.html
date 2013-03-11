@@ -28,11 +28,47 @@
 
     <div class="container">
       <section id="main_content">
-        <p>Customer / Coupon Inquiry:  </p>
+        <h1>Customer / Coupon Inquiry:</h1>
 
 <p>A customer comes in and orders food or drinks.  The customer service representative asks if the customer is a member of the loyalty program or would like to join. If so the customer’s number, email, or card number is entered here:</p>
 
-<p><img src="https://docs.google.com/file/d/0B5i6ygqNVUprVkZqOXN0V1ZoWWs/edit?usp=sharing" alt="1"></p>
+<p><img src="http://sundropplatform.s3.amazonaws.com/packages/Images/1/1.jpg" alt="1"></p>
+
+<h1>Customer Status:</h1>
+
+<p>Using a GetStatus call on a phone number or email will provide you with information about that customer and their current coupons so they can be displayed and redeemed:</p>
+
+<p><img src="http://sundropplatform.s3.amazonaws.com/packages/Images/2/2.jpg" alt="2"></p>
+
+<h2>Here is an example of the RedeemCoupon call in REST:</h2>
+
+<p>Reference for <a href="https://api.cert.mercuryloyalty.com/v3_0/Loyalty/GetStatus/?apikey=%7BAPIKEY%7D&amp;apisecret=%7BAPISECRET%7D&amp;customeridentifier=%7BMOBILEOREMAIL%7D&amp;cardnumber=%7BCARDNUMBER%7D&amp;customerid=%7BCUSTOMERID%7D">https://api.cert.mercuryloyalty.com/v3_0/Loyalty/GetStatus/?apikey={APIKEY}&amp;apisecret={APISECRET}&amp;customeridentifier={MOBILEOREMAIL}&amp;cardnumber={CARDNUMBER}&amp;customerid={CUSTOMERID}</a></p>
+
+<p>We can see this customer has coupons available and this can be applied to the ticket by clicking on the coupon.  We return useful information like the customer’s name and status in the program in case they have a question.</p>
+
+<h1>Coupon \ Info Response:</h1>
+
+<p>Now that the coupon has been redeemed using the RedeemCoupon call it will no longer be available in that customers list.</p>
+
+<p><img src="http://sundropplatform.s3.amazonaws.com/packages/Images/3/3.jpg" alt="3"></p>
+
+<p>Now that the coupon has been redeemed using the RedeemCoupon call it will no longer be available in that customers list.</p>
+
+<h1>Nag Screen:</h1>
+
+<p>If the customer has not yet entered a number into the system we Nag them at the end of the sale as well.</p>
+
+<p><img src="http://sundropplatform.s3.amazonaws.com/packages/Images/4/4.jpg" alt="4"></p>
+
+<p>The amount after discount will be sent at the end of the order using AddCredits and a CloseTransactionWithSku will tell us what he purchased. We use the Close Transaction data to do future marketing.</p>
+
+<h2>Here is an example of the AddCredits call in REST:</h2>
+
+<p>Reference for <a href="https://api.cert.mercuryloyalty.com/v3_0/Loyalty/AddCredits/?apikey=%7BAPIKEY%7D&amp;apisecret=%7BAPISECRET%7D&amp;customeridentifier=%7BMOBILEOREMAIL%7D&amp;units=%7BUNITS%7D&amp;description=%7BDESCRIPTION%7D&amp;employee_id=%7BEMPLOYEE_ID%7D&amp;station_id=%7BSTATION_ID%7D&amp;ticket_id=%7BTICKET_ID%7D&amp;revenue=%7BREVENUE%7D&amp;cardnumber=%7BCARDNUMBER%7D&amp;language=%7BLANGUAGE%7D&amp;client=%7BCLIENT%7D&amp;version=%7BVERSION%7D&amp;delay=%7BDELAY%7D&amp;testmode=%7BTESTMODE%7D&amp;match=%7BMATCH%7D&amp;deviceId=%7BDEVICEID%7D">https://api.cert.mercuryloyalty.com/v3_0/Loyalty/AddCredits/?apikey={APIKEY}&amp;apisecret={APISECRET}&amp;customeridentifier={MOBILEOREMAIL}&amp;units={UNITS}&amp;description={DESCRIPTION}&amp;employee_id={EMPLOYEE_ID}&amp;station_id={STATION_ID}&amp;ticket_id={TICKET_ID}&amp;revenue={REVENUE}&amp;cardnumber={CARDNUMBER}&amp;language={LANGUAGE}&amp;client={CLIENT}&amp;version={VERSION}&amp;delay={DELAY}&amp;testmode={TESTMODE}&amp;match={MATCH}&amp;deviceId={DEVICEID}</a></p>
+
+<h2>Here is an example of the CloseTransactionWithSku call in REST:</h2>
+
+<p>Reference for <a href="https://api.cert.mercuryloyalty.com/v3_0/Loyalty/CloseTransactionWithSKU/?apikey=%7BAPIKEY%7D&amp;apisecret=%7BAPISECRET%7D&amp;revenue=%7BREVENUE%7D&amp;guestcount=%7BGUESTCOUNT%7D&amp;employee_id=%7BEMPLOYEE_ID%7D&amp;station_id=%7BSTATION_ID%7D&amp;ticket_id=%7BTICKET_ID%7D&amp;isloyalty=%7BISLOYALTY%7D&amp;deviceId=%7BDEVICEID%7D">https://api.cert.mercuryloyalty.com/v3_0/Loyalty/CloseTransactionWithSKU/?apikey={APIKEY}&amp;apisecret={APISECRET}&amp;revenue={REVENUE}&amp;guestcount={GUESTCOUNT}&amp;employee_id={EMPLOYEE_ID}&amp;station_id={STATION_ID}&amp;ticket_id={TICKET_ID}&amp;isloyalty={ISLOYALTY}&amp;deviceId={DEVICEID}</a></p>
       </section>
     </div>
 
